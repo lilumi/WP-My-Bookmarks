@@ -1,4 +1,94 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+.lm_add_to_bookmarks {
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+.lm_add_to_bookmarks:focus {
+    outline: none;
+}
+
+.lm_add_to_bookmarks:before {
+    content: "\f323";
+    font-family: dashicons;
+    display: inline-block;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    color: #961817;
+    font-size: 1.4em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.user_bookmark .dashicons {
+    font-size: 1.4em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.lm_add_to_bookmarks:hover {
+    color: #6C0000;
+}
+
+.lm_wait {
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.2;
+    text-decoration: none;
+    color: #333333 !important;
+}
+
+.lm_wait .dashicons:before {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    display: inline-block;
+}
+
+@-webkit-keyframes rotating
+/* Old Safari and Chrome */
+
+{
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.lm_bookmark {
+    overflow: hidden;
+    margin-bottom: 2em;
+}

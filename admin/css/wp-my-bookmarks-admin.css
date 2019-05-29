@@ -1,4 +1,39 @@
 /**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
+ * All of the CSS for your admin-specific functionality in this file.
  */
+
+.lm_bookmarks_table .check-column {
+    width: 50px;
+}
+
+.lm_bookmarks_table .thumb_td {
+    width: 160px;
+}
+
+.lm_thumb {
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: #ececec;
+    padding: 3px;
+    position: relative;
+}
+
+.lm_thumb img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    display: block;
+    vertical-align: top;
+}
+
+.lm_thumb:before {
+    content: 'No Image';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    top: 70px;
+}

@@ -100,4 +100,21 @@ class Wp_My_Bookmarks_Admin {
 
 	}
 
+	public function add_plugin_page()
+    {
+        add_menu_page(
+            'My Bookmarks', 
+            'My Bookmarks', 
+            'read', 
+            'my_bookmarks', 
+			array( $this, 'view_and_manage_my_bookmarks' ),
+			'dashicons-tag',
+			33 //position in the left sidebar is right after "Comments"
+        );
+	}
+	
+	public function view_and_manage_my_bookmarks() {
+		require_once('partials/wp-my-bookmarks-admin-display.php');
+	}
+
 }
