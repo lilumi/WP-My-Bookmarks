@@ -193,7 +193,7 @@ class Wp_My_Bookmarks_Public {
 			foreach($bookmarks_array as $boo) {
 				$result .= '<div class="lm_bookmark" id="bookmark_'.$boo['ID'].'">'.
 					'<div class="lm_thumb">'.html_entity_decode($boo['thumbnail']).'</div>'.
-						'<h3><a href="'.$boo['permalink'].'">'.$boo['title'].'</a></h3>'.
+						'<h3><a href="'.html_entity_decode($boo['permalink']).'">'.html_entity_decode($boo['title']).'</a></h3>'.
 						'<div class="lm_short_desc">'.html_entity_decode($boo['excerpt']).'</div>'. 
 						'<div class="user_bookmark"><a href="#" data-id="'.$boo['ID'].'" class="lm_add_to_bookmarks">'.__('Remove from bookmarks', 'wp-my-bookmarks').'</a><span class="lm_wait"></span></div>'.
 					'</div>';

@@ -57,7 +57,7 @@
     $user_id = get_current_user_id();
     $bookmarks_array = json_decode( get_user_meta($user_id, 'lm_my_bookmarks', true) , true);
     if (empty($bookmarks_array)) {
-        _e('There is no bookmarks yet. You can add them from the archives at the bottom of the each post', 'wp-my-bookmarks');
+        _e('There is no any bookmark yet. You can add them from the archives at the bottom of the each post', 'wp-my-bookmarks');
     } else {
         ?>
         <ul class="subsubsub">
@@ -78,7 +78,7 @@
                     <div class="lm_thumb"><?php echo html_entity_decode($boo['thumbnail']); ?></div>
                 </td>    
                 <td>
-                    <h3><a href="<?php echo $boo['permalink']; ?>"><?php echo $boo['title']; ?></a></h3><div class="lm_short_desc"><?php echo html_entity_decode($boo['excerpt']); ?></div> 
+                    <h3><a href="<?php echo html_entity_decode($boo['permalink']); ?>"><?php echo html_entity_decode($boo['title']); ?></a></h3><div class="lm_short_desc"><?php echo html_entity_decode($boo['excerpt']); ?></div> 
                     <div class="row-actions">
         <?php 
             echo sprintf(

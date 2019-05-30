@@ -24,8 +24,7 @@
                 },
                 success: function(result) {
                     _wait_span.innerHTML = result.ok_message;
-                    bookmark_el = document.getElementById('#bookmark_' + post_id);
-                    bookmark_el.parentNode.removeChild(bookmark_el);
+                    $('#bookmark_' + post_id).remove();
                     setTimeout(function() {
                         _wait_span.innerHTML = '';
                         _this.text = result.text;
