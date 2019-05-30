@@ -58,11 +58,11 @@ class Wp_My_Bookmarks_Public {
 		$this->plugin_name = $plugin_name;
         $this->version = $version;
         
-        $this->add_text = __('Add to bookmarks', 'wp-my-bookmarks');
-		$this->remove_text =  __('Remove from bookmarks', 'wp-my-bookmarks');
-		$this->add_ok_text = __('Added.', 'wp-my-bookmarks');
+        $this->add_text       =  __('Add to bookmarks', 'wp-my-bookmarks');
+		$this->remove_text    =  __('Remove from bookmarks', 'wp-my-bookmarks');
+		$this->add_ok_text    =  __('Added.', 'wp-my-bookmarks');
 		$this->remove_ok_text =  __('Removed.', 'wp-my-bookmarks');
-		$this->wait_text =  __('Please wait a second...', 'wp-my-bookmarks');
+		$this->wait_text      =  __('Please wait a second...', 'wp-my-bookmarks');
 
 	}
 
@@ -115,16 +115,6 @@ class Wp_My_Bookmarks_Public {
 			'wait_text' => $this->wait_text,
 		  );
 		wp_localize_script( $this->plugin_name, 'ajax_props', $props );
-	}
-
-	/**
-	 * Add "Add to Bookmarks" link after the content in the archive view
-	 *
-	 * @since    1.0.0
-	 */
-	private function bookmark_link($id = null) {
-
-
 	}	
 
 	/**
@@ -168,10 +158,10 @@ class Wp_My_Bookmarks_Public {
 
 			$bookmarks_array[$post_id] = array(
 				'ID' => $post_id, 
-				'permalink' => htmlentities(get_the_permalink($post_id)),
+				'permalink' => get_the_permalink($post_id),
 				'title' => htmlentities(get_the_title($post_id)),
 				'excerpt' => htmlentities(get_the_excerpt($post_id)) , 
-				'thumbnail' => htmlentities(get_the_post_thumbnail($post_id)), 
+				'thumbnail' => get_the_post_thumbnail($post_id), 
 				'is_in_trash' => false,
 			);
 			update_user_meta($user_id, 'lm_my_bookmarks', json_encode($bookmarks_array, JSON_UNESCAPED_UNICODE));
@@ -219,7 +209,7 @@ class Wp_My_Bookmarks_Public {
 		if (!empty($bookmarks_array)) {
 			foreach($bookmarks_array as $boo) {
 				$result .= '<div class="lm_bookmark" id="bookmark_'.$boo['ID'].'">'.
-				'<div class="lm_thumb">'.html_entity_decode($boo['thumbnail']).'</div>'.
+				'<div class="lm_thumb">'.$boo['thumbnail'].'</div>'.
 				    '<h3><a href="'.$boo['permalink'].'">'.$boo['title'].'</a></h3>'.
 					'<div class="lm_short_desc">'.html_entity_decode($boo['excerpt']).'</div>'. 
 					'<div class="user_bookmark"><a href="#" data-id="'.$boo['ID'].'" class="lm_add_to_bookmarks">'.__('Remove from bookmarks', 'wp-my-bookmarks').'</a><span class="lm_wait"></span></div>'.

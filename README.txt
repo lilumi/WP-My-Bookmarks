@@ -4,7 +4,7 @@ Donate link: #
 Tags: bookmarks, pins, saved items list
 Requires at least: 3.0.1
 Tested up to: 5.2.1
-Stable tag: 1.1
+Stable tag: 1.0
 License: 
 License URI: 
 
@@ -30,9 +30,6 @@ You can delete posts from the list.
 
 
 == Changelog ==
-
-= 1.1.0 =
-* Added possibility to delete multiple bookmarks at once.
 
 = 1.0.0 =
 First release

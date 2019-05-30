@@ -65,9 +65,6 @@ function get_delete_bookmark_link($id = null, $force_delete = false) {
 	        <li class="trash"><a href="admin.php?page=my_bookmarks&status=boo_trash"><?php _e('Trash'); ?> </a></li>
         </ul>
             <table class="wp-list-table lm_bookmarks_table widefat fixed posts"><thead>
-            <td class="check-column">
-                <label class="screen-reader-text" for="cb-select-all-1"><?php _e( 'Select All' ); ?></label><input id="cb-select-all-1" type="checkbox" />
-            </td>
             <td class="thumb_td"><?php _e('Thumbnail'); ?></td>
             <td class="title column-title has-row-actions column-primary page-title"><?php  _e('Title'); ?></td>
             </thead><tbody>
@@ -77,8 +74,6 @@ function get_delete_bookmark_link($id = null, $force_delete = false) {
                 if ($_REQUEST['status'] !== 'boo_trash' && $boo['is_in_trash']== true) continue;
         ?>         
             <tr>
-                <td>
-                    <input id="cb-select-'<?php echo $boo['ID']; ?>'" type="checkbox" name="post[]" value="<?php echo $boo['ID']; ?>" /></td>
                 <td class="thumb_td">
                     <div class="lm_thumb"><?php echo html_entity_decode($boo['thumbnail']); ?></div>
                 </td>    

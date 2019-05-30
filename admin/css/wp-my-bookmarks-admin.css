@@ -25,7 +25,6 @@
     position: relative;
     z-index: 2;
     display: block;
-    vertical-align: top;
 }
 
 .lm_thumb:before {
