@@ -29,27 +29,27 @@
 
     }
 
-/**
- * function that generates permalink for delete bookmark in the backend
- */
-function get_delete_bookmark_link($id = null, $force_delete = false) {
-	if ( empty( $id ) ) { 
-		return;
-	}
+    /**
+     * generates permalink for delete bookmark in the backend
+     */
+    function get_delete_bookmark_link($id = null, $force_delete = false) {
+        if ( empty( $id ) ) { 
+            return;
+        }
 
-	if ($_REQUEST['status'] == 'boo_trash')  {
-		$force_delete = true;  
-	}
+        if ($_REQUEST['status'] == 'boo_trash')  {
+            $force_delete = true;  
+        }
 
-	$action = ( $force_delete ) ? 'boo_delete' : 'boo_trash';
+        $action = ( $force_delete ) ? 'boo_delete' : 'boo_trash';
 
-	$delete_link = add_query_arg( 'action', $action, 
-		wp_nonce_url( 
-			admin_url('admin.php?page=my_bookmarks&post_id='.$id ), "$action-post_$id" ) 
-		);
+        $delete_link = add_query_arg( 'action', $action, 
+            wp_nonce_url( 
+                admin_url('admin.php?page=my_bookmarks&post_id='.$id ), "$action-post_$id" ) 
+            );
 
-	return $delete_link;
-}    
+        return $delete_link;
+    }    
 ?>
 <div class="wrap">
 <h1><?php _e('My Bookmarks', 'wp-my-bookmarks');?></h1>
@@ -64,10 +64,10 @@ function get_delete_bookmark_link($id = null, $force_delete = false) {
 	        <li class="all"><a href="admin.php?page=my_bookmarks" class="" aria-current="page"><?php _e('All Bookmarks', 'wp-my-bookmarks'); ?></a> |</li>
 	        <li class="trash"><a href="admin.php?page=my_bookmarks&status=boo_trash"><?php _e('Trash'); ?> </a></li>
         </ul>
-            <table class="wp-list-table lm_bookmarks_table widefat fixed posts"><thead>
-            <td class="thumb_td"><?php _e('Thumbnail'); ?></td>
-            <td class="title column-title has-row-actions column-primary page-title"><?php  _e('Title'); ?></td>
-            </thead><tbody>
+        <table class="wp-list-table lm_bookmarks_table widefat fixed posts"><thead>
+        <td class="thumb_td"><?php _e('Thumbnail'); ?></td>
+        <td class="title column-title has-row-actions column-primary page-title"><?php  _e('Title'); ?></td>
+        </thead><tbody>
         <?php       
             foreach($bookmarks_array as $boo) {
                 if ($_REQUEST['status'] == 'boo_trash' && $boo['is_in_trash']== false) continue;

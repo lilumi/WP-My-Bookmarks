@@ -16,7 +16,7 @@
                 data: {
                     'post_id': post_id,
                     'security': ajax_props.ajax_nonce,
-                    'action': 'process_bookmark' //this is the name of the AJAX method called in WordPress
+                    'action': 'process_bookmark'
                 },
                 beforeSend: function() {
                     _this.text = '';
@@ -24,22 +24,19 @@
                 },
                 success: function(result) {
                     _wait_span.innerHTML = result.ok_message;
-                    $('#bookmark_' + post_id).remove();
+                    bookmark_el = document.getElementById('#bookmark_' + post_id);
+                    bookmark_el.parentNode.removeChild(bookmark_el);
                     setTimeout(function() {
                         _wait_span.innerHTML = '';
                         _this.text = result.text;
                     }, 1000);
 
                 },
-                error: function() {
-                    console.log('@@@ error: ', result);
+                error: function(jqXHR, exception) {
+                    console.log('@@@ error: ', jqXHR, exception);
                 }
             });
         });
-
-    });
-
-    $(window).load(function() {
 
     });
 
